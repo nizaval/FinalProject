@@ -1,0 +1,119 @@
+body{
+    background-color: #faf9f9;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 6.5rem;
+  gap: .2rem;
+}
+  
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.divImg{
+  border-radius: .5rem;
+  
+}
+
+.ab{
+  
+  display: flex;
+  background-color: #467161;   
+  color: white;
+  justify-content: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 5rem;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .ab {
+    flex-direction: column;
+  }
+}
+
+.ft{
+  
+  display: flex;
+  background-color: #89C7A2;   
+  color: rgb(14, 14, 14);
+  justify-content: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+@media (max-width: 800px) {
+  .ft {
+    flex-direction: column;
+  }
+}
+
+  
+
+/* Appearance */
+.links {
+	background-color: #ffffff9d;
+	border-bottom: 1px solid #0003;
+	box-shadow: 0 0 32px #0003;
+	font-size: 2em;
+	font-weight: 300;
+}
+.links > a {
+	color: #555b6e;
+	padding: .75em;
+	text-align: center;
+	text-decoration: none;
+	transition: all .5s;
+}
+.links > a:hover {
+	background: #ffffff06;
+	color: #4c8479;
+}
+.links > .line {
+	background: #68a;
+	height: 1px;
+	pointer-events: none;
+}
+
+/* The Magic */
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.links {
+	display: grid;
+	grid-template-columns: repeat(var(--items), 1fr);
+	position: relative;
+}
+.links > .line {
+	opacity: 0;
+	transition: all .5s;
+	position: absolute;
+	bottom: 0;
+	left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
+	width: var(--width, calc(100% / var(--items)));
+	--index: 0;
+}
+.links > a:hover ~ .line {
+	opacity: 1;
+}
+
+.links > a:nth-of-type(1):hover ~ .line { --index: 1; }
+.links > a:nth-of-type(2):hover ~ .line { --index: 2; }
+.links > a:nth-of-type(3):hover ~ .line { --index: 3; }
+.links > a:nth-of-type(4):hover ~ .line { --index: 4; }
+.links > a:nth-of-type(5):hover ~ .line { --index: 5; }
+.links > a:nth-of-type(6):hover ~ .line { --index: 6; }
+.links > a:nth-of-type(7):hover ~ .line { --index: 7; }
+.links > a:nth-of-type(8):hover ~ .line { --index: 8; }
+.links > a:nth-of-type(9):hover ~ .line { --index: 9; }
+.links > a:nth-of-type(10):hover ~ .line { --index: 10; }
+.links > a:last-of-type:hover ~ .line { --index: var(--items); }
